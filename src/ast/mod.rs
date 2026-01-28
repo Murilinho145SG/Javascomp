@@ -1,10 +1,26 @@
-pub enum Expr {
+use crate::lexer::Operator;
+
+pub enum Expression {
     Number(f64),
     String(String),
+
     Identifier(String),
-    BinaryOp(Box<Expr>, String, Box<Expr>), // ex: 1 + 2
+
+    BinaryOp(Box<Expression>, Operator, Box<Expression>),
+    
+    Let(Box<Expression>, Option<Box<Expression>>),
+    Const(Box<Expression>, Option<Box<Expression>>),
+    Assign(Box<Expression>, Box<Expression>),
+
+    Get(Box<Expression>, Box<Expression>),
+
+    Call(Box<Expression>, Vec<Expression>),
+
+    Function {
+        name: Option<String>,
+        params: Vec<Expression>,
+        body: Vec<Expression>
+    }
 }
 
-pub enum Stmt {
-    LetDecl { name: String, value: Expr },
-}
+pub type Ast = Vec<Expression>;
