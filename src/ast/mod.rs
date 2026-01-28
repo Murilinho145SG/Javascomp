@@ -1,5 +1,7 @@
 use crate::lexer::Operator;
 
+use crate::types::Type;
+
 pub enum Expression {
     Number(f64),
     String(String),
@@ -8,8 +10,8 @@ pub enum Expression {
 
     BinaryOp(Box<Expression>, Operator, Box<Expression>),
     
-    Let(Box<Expression>, Option<Box<Expression>>),
-    Const(Box<Expression>, Option<Box<Expression>>),
+    Let(Box<Expression>, Type, Option<Box<Expression>>),
+    Const(Box<Expression>, Type, Option<Box<Expression>>),
     Assign(Box<Expression>, Box<Expression>),
 
     Get(Box<Expression>, Box<Expression>),
@@ -18,7 +20,8 @@ pub enum Expression {
 
     Function {
         name: Option<String>,
-        params: Vec<Expression>,
+        return_type: Type,
+        params: Vec<(String, Type)>,
         body: Vec<Expression>
     }
 }
