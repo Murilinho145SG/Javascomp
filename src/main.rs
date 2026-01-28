@@ -1,6 +1,16 @@
-use javascomp::compile;
+use javascomp::{
+    lexer::{lexer, TokenKind},
+};
 
-fn main() {    
+fn main() {
+	// TESTING
     let code = "let x = 10;";
-    compile(code);
+    let mut l = lexer::Lexer::new(code);
+    loop {
+        let token = l.next_token();
+        if token.token == TokenKind::EndOfFile {
+            break;
+        }
+        println!("{:?}", token);
+    }
 }
