@@ -4,8 +4,8 @@ pub mod ast;
 pub mod codegen;
 pub mod diagnostics;
 
-/// Ponto de entrada para a lógica do compilador (API).
-/// Aqui podemos conectar o lexer, parser e gerador de código.
+/// Entry point for the compiler logic (API).
+/// Here we connect the lexer, parser, and code generator.
 pub fn compile(_source: &str) {
-    println!("Compilando... (Not yet implemented)");
+    println!("Compiling... (Not yet implemented)");
 }

@@ -1,7 +1,3 @@
-// AST: Abstract Syntax Tree
-// Define a estrutura de dados que representa o código.
-// Ex: Structs para Expressões, Statements, Declarações.
-
 pub enum Expr {
     Number(f64),
     String(String),
@@ -11,5 +7,4 @@ pub enum Expr {
 
 pub enum Stmt {
     LetDecl { name: String, value: Expr },
-    // IfStatement, WhileLoop...
 }

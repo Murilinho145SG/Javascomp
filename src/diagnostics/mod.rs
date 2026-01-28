@@ -1,6 +1,3 @@
-// Diagnostics: Sistema de Erros e Avisos
-// Foco: Mensagens amigáveis e explicativas.
-
 pub struct Diagnostic {
     pub message: String,
     pub line: usize,
